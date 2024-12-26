@@ -25,11 +25,17 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-2
 
+      - name: Navigate to Terraform Directory
+        run: cd terraform
+
       - name: Terraform Init
         run: terraform init
+        working-directory: ./terraform
 
       - name: Terraform Plan
         run: terraform plan
+        working-directory: ./terraform
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+        working-directory: ./terraform
