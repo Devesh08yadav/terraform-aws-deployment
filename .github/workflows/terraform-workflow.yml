@@ -24,11 +24,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-1
-
-      - name: Debug AWS Environment
-        run: |
-          aws sts get-caller-identity
-          aws s3 ls s3://my-terraform-state --region ap-northeast-1
           
       - name: Navigate to Terraform Directory
         run: cd terraform
